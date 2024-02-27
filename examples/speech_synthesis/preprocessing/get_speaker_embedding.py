@@ -39,7 +39,7 @@ def process(args):
                for s in args.splits]
     samples = list(chain(*samples))
     with open(args.config, "r") as f:
-        config = yaml.load(f, Loader=yaml.FullLoader)
+        config = yaml.load(f, Loader=yaml.SafeLoader)
     with open(f"{config['audio_root']}/{config['speaker_set_filename']}") as f:
         speaker_to_id = {r.strip(): i for i, r in enumerate(f)}
 

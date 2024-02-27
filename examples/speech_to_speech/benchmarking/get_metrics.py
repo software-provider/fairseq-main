@@ -100,7 +100,7 @@ def cli_main():
         args.config,
         "r",
     ) as f:
-        config = yaml.load(f, Loader=yaml.FullLoader)
+        config = yaml.load(f, Loader=yaml.SafeLoader)
     dict_args = vars(args)
     dict_args.update(config["general"])
     args = Namespace(**dict_args)
