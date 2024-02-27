@@ -24,7 +24,7 @@ def get_target_sequences(manifest, ground_truth, to_take=1000):
     to_take_ids = []
 
     with open(manifest, 'r') as f:
-        f.readline()
+        f.readline(5_000_000)
 
         for i, line in enumerate(f.readlines()):
             seq_id = line.split()[0]

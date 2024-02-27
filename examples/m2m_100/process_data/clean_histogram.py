@@ -34,8 +34,8 @@ print("Accepted characters for {}: {}".format(args.src, ch1))
 print("Accepted characters for {}: {}".format(args.tgt, ch2))
 
 with open(args.src_file, 'r', encoding='utf8') as fs1, open(args.tgt_file, 'r', encoding='utf8') as fs2, open(args.src_output_file, 'w', encoding='utf8') as fos1, open(args.tgt_output_file, 'w', encoding='utf8') as fos2:
-    ls1 = fs1.readline()
-    ls2 = fs2.readline()
+    ls1 = fs1.readline(5_000_000)
+    ls2 = fs2.readline(5_000_000)
 
     while ls1 or ls2:
         cnt1 = len([c for c in ls1.strip() if c in ch1])
@@ -47,6 +47,6 @@ with open(args.src_file, 'r', encoding='utf8') as fs1, open(args.tgt_file, 'r', 
         else:
             print("{} {} {} \n{} {} {}".format(args.src, cnt1 / len(ls1), ls1.strip(), args.tgt, cnt2 / len(ls2), ls2.strip()))
 
-        ls1 = fs1.readline()
-        ls2 = fs2.readline()
+        ls1 = fs1.readline(5_000_000)
+        ls2 = fs2.readline(5_000_000)
         

@@ -51,7 +51,7 @@ class FilesDataset:
             if isinstance(self.labels, str):
                 lbl_file = osp.splitext(fname)[0] + "." + self.labels
                 with open(lbl_file, "r") as lblf:
-                    lbls = lblf.readline()
+                    lbls = lblf.readline(5_000_000)
                     assert lbls is not None
             else:
                 lbls = self.labels[index]

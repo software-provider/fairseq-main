@@ -24,7 +24,7 @@ def process(args):
     with open(args.in_audio) as f, open(
         args.output_root / f"{args.in_audio.stem}.txt", "w"
     ) as o:
-        f.readline()
+        f.readline(5_000_000)
         for i, line in enumerate(tqdm(f.readlines())):
             audio, _ = line.strip().split("\t", 1)
             sample_id = Path(audio).stem

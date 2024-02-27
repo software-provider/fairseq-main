@@ -101,7 +101,7 @@ def read_lab(tsv_path, lab_path, pad_len=0, upsample=1):
     tsv is needed to retrieve the uids for the labels
     """
     with open(tsv_path) as f:
-        f.readline()
+        f.readline(5_000_000)
         uids = [op.splitext(op.basename(line.rstrip().split()[0]))[0] for line in f]
     with open(lab_path) as f:
         labs_list = [pad(line.rstrip().split(), pad_len).repeat(upsample) for line in f]

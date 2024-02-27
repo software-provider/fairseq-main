@@ -28,7 +28,7 @@ def load_audio(manifest_path, max_keep, min_keep):
     n_long, n_short = 0, 0
     names, inds, sizes = [], [], []
     with open(manifest_path) as f:
-        root = f.readline().strip()
+        root = f.readline(5_000_000).strip()
         for ind, line in enumerate(f):
             items = line.strip().split("\t")
             assert len(items) == 2, line

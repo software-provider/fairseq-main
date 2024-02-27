@@ -365,7 +365,7 @@ class InferenceProcessor:
 
 def parse_wer(wer_file: Path) -> float:
     with open(wer_file, "r") as f:
-        return float(f.readline().strip().split(" ")[1])
+        return float(f.readline(5_000_000).strip().split(" ")[1])
 
 
 def get_wer_file(cfg: InferConfig) -> Path:

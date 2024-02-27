@@ -487,15 +487,15 @@ class CrossTaskMetaProcessor(MetaProcessor):
         n_steps = {}
         steps = {}
         with open(path, 'r') as f:
-            idx = f.readline()
+            idx = f.readline(5_000_000)
             while idx != '':
                 idx = idx.strip()
-                titles[idx] = f.readline().strip()
-                urls[idx] = f.readline().strip()
-                n_steps[idx] = int(f.readline().strip())
-                steps[idx] = f.readline().strip().split(',')
+                titles[idx] = f.readline(5_000_000).strip()
+                urls[idx] = f.readline(5_000_000).strip()
+                n_steps[idx] = int(f.readline(5_000_000).strip())
+                steps[idx] = f.readline(5_000_000).strip().split(',')
                 next(f)
-                idx = f.readline()
+                idx = f.readline(5_000_000)
         return {
             'title': titles,
             'url': urls,

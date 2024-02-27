@@ -43,7 +43,7 @@ def main():
     to_take = set(v[0] for v in sequence2length[:args.take_shortest])
 
     with open(args.manifest, 'r') as fin:
-        fin.readline()
+        fin.readline(5_000_000)
 
         linenum2file = dict([
             (i, l.split("__")[0]) for (i, l) in enumerate(fin)

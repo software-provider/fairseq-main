@@ -9,7 +9,7 @@ from typing import List, Tuple
 def get_audio_files(manifest_path: str) -> Tuple[str, List[str], List[int]]:
     fnames, sizes = [], []
     with open(manifest_path, "r") as f:
-        root_dir = f.readline().strip()
+        root_dir = f.readline(5_000_000).strip()
         for line in f:
             items = line.strip().split("\t")
             assert (

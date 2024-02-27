@@ -18,7 +18,7 @@ def generate(bart, infile, outfile="bart_hypo.txt", bsz=32, n_obs=None, **eval_k
     # if n_obs is not None: bsz = min(bsz, n_obs)
 
     with open(infile) as source, open(outfile, "w") as fout:
-        sline = source.readline().strip()
+        sline = source.readline(5_000_000).strip()
         slines = [sline]
         for sline in source:
             if n_obs is not None and count > n_obs:

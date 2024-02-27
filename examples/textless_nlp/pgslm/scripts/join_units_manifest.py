@@ -20,7 +20,7 @@ def main():
     with open(args.manifest, "r") as manifest, open(args.units, "r") as units, open(
         args.output, "w"
     ) as outp:
-        root = manifest.readline().strip()
+        root = manifest.readline(5_000_000).strip()
         root = pathlib.Path(root)
 
         for manifest_line, unit_line in zip(manifest.readlines(), units.readlines()):

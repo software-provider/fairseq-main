@@ -34,7 +34,7 @@ def get_shard_range(tot, nshard, rank):
 
 def get_path_iterator(tsv, nshard, rank):
     with open(tsv, "r") as f:
-        root = f.readline().rstrip()
+        root = f.readline(5_000_000).rstrip()
         lines = [line.rstrip() for line in f]
         start, end = get_shard_range(len(lines), nshard, rank)
         lines = lines[start:end]

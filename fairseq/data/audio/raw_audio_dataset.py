@@ -267,7 +267,7 @@ class FileAudioDataset(RawAudioDataset):
         self.skipped_indices = set()
 
         with open(manifest_path, "r") as f:
-            self.root_dir = f.readline().strip()
+            self.root_dir = f.readline(5_000_000).strip()
             for i, line in enumerate(f):
                 items = line.strip().split("\t")
                 assert len(items) == 2, line
